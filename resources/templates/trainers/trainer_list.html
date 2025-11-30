@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Trainers{% endblock %}
+{% block content %}
+<h1 class="mb-4">Trainers</h1>
+<div class="row">
+  {% for trainer in object_list %}
+    <div class="col-md-4 mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ trainer.name }}</h5>
+          <p class="card-text">Experience: {{ trainer.experience_years }} years</p>
+          <a href="{% url 'trainer-detail' trainer.pk %}" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>No trainers available.</p>
+  {% endfor %}
+</div>
+<a href="{% url 'trainer-create' %}" class="btn btn-success">Add New Trainer</a>
+{% endblock %}

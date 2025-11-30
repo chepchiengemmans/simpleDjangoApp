@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Course Details{% endblock %}
+{% block content %}
+<div class="card">
+	<div class="card-body">
+		<h2 class="card-title">{{ object.title }}</h2>
+		<p class="card-text">{{ object.description }}</p>
+		<p class="card-text"><strong>Duration:</strong> {{ object.duration }} hours</p>
+		<a href="{% url 'course-list' %}" class="btn btn-secondary">Back to Courses</a>
+	</div>
+</div>
+{% endblock %}

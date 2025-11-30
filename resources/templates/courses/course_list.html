@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Courses{% endblock %}
+{% block content %}
+<h1 class="mb-4">Courses</h1>
+<div class="row">
+  {% for course in object_list %}
+    <div class="col-md-4 mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ course.title }}</h5>
+          <p class="card-text">Duration: {{ course.duration }} hours</p>
+          <a href="{% url 'course-detail' course.pk %}" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>No courses available.</p>
+  {% endfor %}
+</div>
+<a href="{% url 'course-create' %}" class="btn btn-success">Add New Course</a>
+{% endblock %}

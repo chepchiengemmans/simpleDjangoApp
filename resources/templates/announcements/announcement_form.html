@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Add New Announcement{% endblock %}
+{% block content %}
+<h2>Add New Announcement</h2>
+<form method="post" class="mb-3">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-success">Create</button>
+</form>
+<a href="{% url 'announcement-list' %}" class="btn btn-secondary">Back to Announcements</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Announcement Details{% endblock %}
+{% block content %}
+<div class="card">
+	<div class="card-body">
+		<h2 class="card-title">{{ object.title }}</h2>
+		<p class="card-text">{{ object.message }}</p>
+		<p class="card-text"><strong>Date Posted:</strong> {{ object.date_posted|date:"Y-m-d H:i" }}</p>
+		<a href="{% url 'announcement-list' %}" class="btn btn-secondary">Back to Announcements</a>
+	</div>
+</div>
+{% endblock %}

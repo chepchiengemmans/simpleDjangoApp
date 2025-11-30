@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Announcements{% endblock %}
+{% block content %}
+<h1 class="mb-4">Announcements</h1>
+<div class="row">
+  {% for announcement in object_list %}
+    <div class="col-md-4 mb-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ announcement.title }}</h5>
+          <p class="card-text">{{ announcement.date_posted|date:"Y-m-d H:i" }}</p>
+          <a href="{% url 'announcement-detail' announcement.pk %}" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>No announcements available.</p>
+  {% endfor %}
+</div>
+<a href="{% url 'announcement-create' %}" class="btn btn-success">Add New Announcement</a>
+{% endblock %}

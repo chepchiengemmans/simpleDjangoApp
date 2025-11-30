@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="text-center mt-5">
+  <h1>Welcome to the Simple Django App</h1>
+  <p class="lead">Manage Courses, Trainers, and Announcements easily.</p>
+  <div class="d-flex justify-content-center gap-3 mt-4">
+    <a href="{% url 'course-list' %}" class="btn btn-secondary btn-lg">View Courses</a>
+    <a href="{% url 'trainer-list' %}" class="btn btn-secondary btn-lg">View Trainers</a>
+    <a href="{% url 'announcement-list' %}" class="btn btn-secondary btn-lg">View Announcements</a>
+  </div>
+</div>
+{% endblock %}
